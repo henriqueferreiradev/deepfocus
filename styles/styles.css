@@ -1,26 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --co: #ffffff1e;
+    --cnz: #71717A;
+    --cnz2: #27272A;
     --cor-de-fundo: #18181b;
-    --fonte-timer: "Rajdhani";
+    --bco: #FFF;
+    --preto: #000000 --fonte-timer: "Rajdhani";
     --fonte-principal: "Inter";
-    --branco: "#FFFFFF";
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
 }
 
 body {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
     font-family: var(--fonte-principal);
     background-color: var(--cor-de-fundo);
-    color: var(--branco);
+    color: var(--bco);
+    gap: 10em;
 }
 
 .container {
+    border: 1px solid var(--cnz2);
+    border-radius: 25px;
+}
 
+.container-timer {
     position: relative;
     width: 600px;
     height: 600px;
@@ -67,16 +78,41 @@ button:hover {
     color: white;
 
 }
- 
+
+.container_titulo {
+    padding: 1.5em;
+    border-bottom: 1px solid var(--cnz);
+
+}
+
+.container_titulo h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+}
+
+.container_titulo p {
+    color: var(--cnz);
+}
+
+.lista-de-tarefas {
+    padding: 0;
+    margin: 0;
+}
+
 .container_lista-de-tarefas {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
- 
+
 .lista-item-container {
     display: flex;
-    gap: 1em;
+    gap: 0.5em;
+    border-bottom: 1px solid var(--cnz);
+    margin: .5em 1em;
+    padding: 0.5em 0.5em;
+
 }
 
 .lista-item-container p {
@@ -86,4 +122,46 @@ button:hover {
 
 .tarefa-input {
     width: 400px;
+}
+
+.input_container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    gap: 2em;
+    width: 100%;
+}
+
+.tarefa-input {
+    background-color: var(--cnz2);
+    border: none;
+    border-radius: 0.5em;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--cnz);
+    border-radius: 5px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: transparent;
+    border-color: lime;
+}
+
+
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: lime;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
