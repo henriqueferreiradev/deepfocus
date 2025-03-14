@@ -9,58 +9,77 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="container_titulo">
-            <h3>Dados da sessão</h3>
-            <p>Seus objetivos para essa seção</p>
+    <header>
+        <div>
+            <h2>Deep <span>Focus</span></h2>
         </div>
-        <div class="container-timer">
+        <div class="social_container">
+            <a class="social_links" href=""><img src="./assets/darkmode.png" alt=""></a>
+            <a class="social_links" href=""><img src="./assets/github_dark.png" alt=""></a>
+            <a class="social_links" href=""><img src="./assets/translate-dark.png" alt=""></a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="container_titulo">
+                <h3>Dados da sessão</h3>
+                <p>Seus objetivos para essa seção</p>
+            </div>
+            <div class="container-timer">
 
 
-            <svg width="600" height="600" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#27272A" stroke-width="2" />
-            </svg>
+                <svg width="600" height="600" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#27272A" stroke-width="2" />
+                </svg>
 
-            <div class="content">
-                <div class="focus-break-btns">
-                    <button class="focus-break">Focus</button>
-                    <button class="focus-break">Break</button>
-                </div>
-                <div id="timer">25:00</div>
-                <div class="focus-break-btns">
-                    <button onclick="startTimer()">Iniciar</button>
-                    <button onclick="pauseTimer()">Pausar</button>
-                    <button onclick="resetTimer()">Resetar</button>
+                <div class="content">
+                    <div class="focus-break-btns">
+                        <button class="focus-break">Focus</button>
+                        <button class="focus-break">Break</button>
+                    </div>
+                    <div id="timer">25:00</div>
+                    <div class="focus-break-btns">
+                        <button onclick="startTimer()">Iniciar</button>
+                        <button onclick="pauseTimer()">Pausar</button>
+                        <button onclick="resetTimer()">Resetar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="container_titulo">
-            <h3>Lista de tarefas</h3>
-            <p>Seus objetivos para essa seção</p>
-        </div>
-        <div class="container-timer">
-            <div class="container_lista-de-tarefas">
-                <ul class="lista-de-tarefas" id="lista-de-tarefas">
-                    <li class="lista-item-container">
-                        <input type="checkbox" id="checkbox-1" />
-                        <p>Ração de gato</p>
-                    </li>
-                    <li class="lista-item-container">
-                        <input type="checkbox" id="checkbox-1" />
-                        <p>Ração de gato</p>
-                    </li>
-                </ul>
-                <div class="input_container">
-                    <input class="tarefa-input" type="text">
-                    <button onclick="adicionarTarefa()">Adicionar</button>
+        <div class="container">
+            <div class="container_titulo">
+                <h3>Lista de tarefas</h3>
+                <p>Seus objetivos para essa seção</p>
+            </div>
+            <div class="container-timer">
+                <div class="container_lista-de-tarefas">
+                    <ul class="lista-de-tarefas" id="lista-de-tarefas">
+                        <li class="lista-item-container">
+                            <input type="checkbox" id="checkbox-1" />
+                            <p>Ração de gato</p>
+                        </li>
+                        <li class="lista-item-container">
+                            <input type="checkbox" id="checkbox-1" />
+                            <p>Ração de gato</p>
+                        </li>
+                        <li class="lista-item-container">
+                            <input type="checkbox" id="checkbox-1" />
+                            <p>Ração de gato</p>
+                        </li>
+                        <li class="lista-item-container">
+                            <input type="checkbox" id="checkbox-1" />
+                            <p>Ração de gato</p>
+                        </li>
+                    </ul>
+                    <div class="input_container">
+                        <input class="tarefa-input" type="text">
+                        <button onclick="adicionarTarefa()">Adicionar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </main>
 </body>
 
 </html>

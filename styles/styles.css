@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&display=swap');
 
 :root {
     --cnz: #71717A;
     --cnz2: #27272A;
     --cor-de-fundo: #18181b;
     --bco: #FFF;
-    --preto: #000000 --fonte-timer: "Rajdhani";
+    --preto: #000000;
+    --fonte-timer: "Orbitron";
     --fonte-principal: "Inter";
+    --vd-lima: lime;
+
 
 }
 
@@ -15,15 +18,52 @@
     margin: 0;
 }
 
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 10em;
+    font-family: var(--fonte-timer);
+    font-size: 18px;
+    border: 1px solid var(--cnz2);
+
+}
+
+span {
+    color: var(--vd-lima);
+    border: var(--vd-lima) 1px solid;
+    border-radius: 5px;
+    padding: .2em;
+}
+
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    justify-content: space-between;
+    flex-direction: column;
     font-family: var(--fonte-principal);
     background-color: var(--cor-de-fundo);
     color: var(--bco);
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+
     gap: 10em;
+}
+
+.social_links {
+    background-color: var(--cnz2);
+    padding: 1em;
+    border-radius: 5px;
+    margin: 0 0.2em;
+}
+
+.social_links:hover {
+    border: 1px solid var(--vd-lima);
 }
 
 .container {
@@ -56,9 +96,10 @@ svg {
 
 #timer {
     font-family: var(--fonte-timer);
-    font-size: 150px;
+    font-size: 130px;
     font-weight: bold;
     color: var(--branco);
+    margin: 0.2em 0;
 }
 
 button {
@@ -75,7 +116,8 @@ button {
 }
 
 button:hover {
-    color: white;
+    color: var(--vd-lima);
+    font-weight: 700;
 
 }
 
@@ -96,10 +138,21 @@ button:hover {
 }
 
 .lista-de-tarefas {
+    height: 520px;
+    overflow-y: scroll;
     padding: 0;
     margin: 0;
 }
 
+.lista-de-tarefas::-webkit-scrollbar {
+    background: var(--cnz2) ;
+    width: 5px;
+}
+
+.lista-de-tarefas::-webkit-scrollbar-thumb {
+    background-color: var(--vd-lima);
+    border-radius: 25px;
+}
 .container_lista-de-tarefas {
     display: flex;
     flex-direction: column;
@@ -152,13 +205,13 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked {
     background-color: transparent;
-    border-color: lime;
+    border-color: var(--vd-lima);
 }
 
 
 input[type="checkbox"]:checked::after {
     content: "✔";
-    color: lime;
+    color: var(--vd-lima);
     font-size: 18px;
     position: absolute;
     top: 50%;
