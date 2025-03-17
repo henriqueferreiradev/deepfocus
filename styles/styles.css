@@ -9,9 +9,24 @@
     --fonte-timer: "Orbitron";
     --fonte-principal: "Inter";
     --vd-lima: #84CC16;
+    --vd-lima10: #82cb151a;
+    --azul: #06B6D4;
+    --azul: #06b5d41a;
 
 
 }
+[data-contexto="foco"] {
+    --main-bg-color: linear-gradient(180deg, #8B1FF8 0%, #041832 48.44%, #01080E 100%);
+}
+
+[data-contexto="descanso-curto"] {
+    --main-bg-color: linear-gradient(180deg, #0F725C 0%, #041832 48.44%, #01080E 100%);
+}
+
+[data-contexto="descanso-longo"] {
+    --main-bg-color: linear-gradient(180deg, #1875E9 0%, #041832 48.44%, #01080E 100%);
+}
+
 
 * {
     padding: 0;
@@ -32,6 +47,7 @@ header {
 span {
     color: var(--vd-lima);
     border: var(--vd-lima) 1px solid;
+    background-color: var(--vd-lima10);
     border-radius: 5px;
     padding: .2em;
 }
@@ -56,6 +72,9 @@ main {
 }
 
 svg {
+    position: absolute;
+    top: 0;
+    left: 0;
     transform: rotate(-90deg);
 }
 
@@ -85,11 +104,7 @@ circle {
     height: 600px;
 }
 
-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+
 
 .content {
     position: absolute;
@@ -122,12 +137,14 @@ button {
     cursor: pointer;
     border-radius: 5px;
     text-transform: uppercase;
+
 }
 
 button:hover {
     color: var(--vd-lima);
     font-weight: 700;
     border: 1px solid var(--vd-lima);
+    background-color: var(--vd-lima10);
 
 }
 
@@ -138,19 +155,24 @@ button:hover {
     align-content: end;
 
 }
+
 .botao_excluir:hover {
 
-    border:none;
+    border: none;
 }
+
 .ativo {
     color: var(--vd-lima);
     font-weight: 700;
     border: 1px solid var(--vd-lima);
+    background-color: var(--vd-lima10);
 }
+
 .f_ativo {
     color: var(--vd-lima);
-    
+
 }
+
 .container_titulo {
     padding: 1.5em;
     border-bottom: 1px solid var(--cnz);
@@ -206,7 +228,7 @@ button:hover {
 }
 
 .tarefa-input {
-    width: 70%;
+    width: 400px;
     padding: 1em;
     color: var(--bco);
     font-size: 16px;
@@ -215,11 +237,17 @@ button:hover {
 
 .input_container {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 20px;
+    left: 0;
     display: flex;
-     
     width: 100%;
+    justify-content: center;
+
+
+}
+
+.add_tarefa {
+    font-size: 18px;
 }
 
 .tarefa-input {
@@ -256,8 +284,11 @@ input[type="checkbox"]:checked::after {
 }
 
 .alerta {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: var(--cnz);
     font-size: 20px;
     text-align: center;
 }
-

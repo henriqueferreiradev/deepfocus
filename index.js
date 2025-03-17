@@ -9,6 +9,7 @@ const progressCircle = document.getElementById('progress')
 const botaoAdicionar = document.getElementById('add_tarefa')
 const checkbox = document.getElementById('checkbox-1')
 const alerta = document.querySelector('.alerta')
+const corAtivo = document.querySelector('.ativo')
 
 let tempoFoco = 25 * 60;
 let tempoDescansoCurto = 5 * 60
@@ -71,13 +72,16 @@ function atualizarDisplay() {
 
 function alterarModo() {
     if (modo === "Foco") {
+
         modo = "Descanso Curto";
+        
         modoAtual = tempoDescansoCurto
         totalTime = tempoDescansoCurto
     } else if (modo === "Descanso Curto") {
         modo = "Descanso Longo"
         totalTime = tempoDescansoLongo
         modoAtual = tempoDescansoLongo
+        
     } else {
         modo = "Foco"
         totalTime = tempoFoco
@@ -85,6 +89,7 @@ function alterarModo() {
     }
     atualizarDisplay();
     atualizarCirculo();
+   
 }
 
 
@@ -92,10 +97,12 @@ botaoFoco.addEventListener('click', () => {
     modo = "Foco"
     modoAtual = tempoFoco
     totalTime = tempoFoco
+    
     botaoFoco.classList.add("ativo")
     botaoCurto.classList.remove("ativo")
     botaoLongo.classList.remove("ativo")
     resetTimer()
+    editaEstilos()
 
 })
 
@@ -103,22 +110,24 @@ botaoCurto.addEventListener('click', () => {
     modo = "Descanso Curto"
     modoAtual = tempoDescansoCurto
     totalTime = tempoDescansoCurto
+
     botaoCurto.classList.add("ativo")
     botaoFoco.classList.remove("ativo")
     botaoLongo.classList.remove("ativo")
     resetTimer()
-
+    editaEstilos()
 })
 
 botaoLongo.addEventListener('click', () => {
     modo = "Descanso Longo";
     modoAtual = tempoDescansoLongo
     totalTime = tempoDescansoLongo
+   
     botaoLongo.classList.add("ativo");
     botaoFoco.classList.remove("ativo");
     botaoCurto.classList.remove("ativo");
     resetTimer();
-
+    editaEstilos()
 
 })
 
@@ -170,8 +179,16 @@ function checarCheckbox(inputCheckbox, itemLista) {
 
 }
 
+function editaEstilos() {
+    if (botaoCurto.classList.contains("ativo")) {
+        botaoCurto.style.color = "#06B6D4";
+        botaoCurto.style.background = "#06b5d41a";
+        botaoCurto.style.borderColor = "#06B6D4";
+    }
+
+}
 
 
 atualizarDisplay();
 atualizarCirculo();
-
+editaEstilos()
