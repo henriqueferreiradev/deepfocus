@@ -8,7 +8,7 @@
     --preto: #000000;
     --fonte-timer: "Orbitron";
     --fonte-principal: "Inter";
-    --vd-lima: lime;
+    --vd-lima: #84CC16;
 
 
 }
@@ -54,12 +54,15 @@ main {
 
     gap: 10em;
 }
+
 svg {
     transform: rotate(-90deg);
 }
+
 circle {
     transition: stroke-dashoffset 0.5s liner;
 }
+
 .social_links {
     background-color: var(--cnz2);
     padding: 1em;
@@ -127,10 +130,26 @@ button:hover {
     border: 1px solid var(--vd-lima);
 
 }
+
+.botao_excluir img {
+    border: none;
+    width: 20px;
+    height: 20px;
+    align-content: end;
+
+}
+.botao_excluir:hover {
+
+    border:none;
+}
 .ativo {
     color: var(--vd-lima);
     font-weight: 700;
     border: 1px solid var(--vd-lima);
+}
+.f_ativo {
+    color: var(--vd-lima);
+    
 }
 .container_titulo {
     padding: 1.5em;
@@ -177,6 +196,7 @@ button:hover {
     border-bottom: 1px solid var(--cnz);
     margin: .5em 1em;
     padding: 0.5em 0.5em;
+    align-items: center;
 
 }
 
@@ -186,7 +206,11 @@ button:hover {
 }
 
 .tarefa-input {
-    width: 400px;
+    width: 70%;
+    padding: 1em;
+    color: var(--bco);
+    font-size: 16px;
+    outline: none;
 }
 
 .input_container {
@@ -194,7 +218,7 @@ button:hover {
     bottom: 10px;
     left: 10px;
     display: flex;
-    gap: 2em;
+     
     width: 100%;
 }
 
@@ -230,3 +254,10 @@ input[type="checkbox"]:checked::after {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.alerta {
+    color: var(--cnz);
+    font-size: 20px;
+    text-align: center;
+}
+

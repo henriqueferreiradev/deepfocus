@@ -27,9 +27,11 @@
             </div>
             <div class="container-timer">
 
-
-                <svg width="200" height="200" viewBox="0 0 100 100">
-                    <circle id="progress" cx="50" cy="50" r="45" fill="none" stroke="#27272A" stroke-width="5" 
+                <svg width="600" height="600" viewBox="0 0 100 100">
+                    <!-- Fundo do círculo -->
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#27272A" stroke-width="2" />
+                    <!-- Círculo de progresso -->
+                    <circle id="progress" cx="50" cy="50" r="45" fill="none" stroke="#84CC16" stroke-width="3" 
                         stroke-dasharray="282.74" stroke-dashoffset="282.74" 
                         stroke-linecap="round" />
                 </svg>
@@ -58,26 +60,11 @@
             <div class="container-timer">
                 <div class="container_lista-de-tarefas">
                     <ul class="lista-de-tarefas" id="lista-de-tarefas">
-                        <li class="lista-item-container">
-                            <input type="checkbox" id="checkbox-1" />
-                            <p>Ração de gato</p>
-                        </li>
-                        <li class="lista-item-container">
-                            <input type="checkbox" id="checkbox-1" />
-                            <p>Ração de gato</p>
-                        </li>
-                        <li class="lista-item-container">
-                            <input type="checkbox" id="checkbox-1" />
-                            <p>Ração de gato</p>
-                        </li>
-                        <li class="lista-item-container">
-                            <input type="checkbox" id="checkbox-1" />
-                            <p>Ração de gato</p>
-                        </li>
+                        <p class="alerta">Sem tarefas no momento</p>
                     </ul>
                     <div class="input_container">
-                        <input class="tarefa-input" type="text">
-                        <button onclick="adicionarTarefa()">Adicionar</button>
+                        <input id="tarefa-input" class="tarefa-input" type="text">
+                        <button id="add_tarefa" onclick="adicionarTarefa()">Adicionar</button>
                     </div>
                 </div>
             </div>
