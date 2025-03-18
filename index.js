@@ -10,6 +10,8 @@ const botaoAdicionar = document.getElementById('add_tarefa')
 const checkbox = document.getElementById('checkbox-1')
 const alerta = document.querySelector('.alerta')
 const corAtivo = document.querySelector('.ativo')
+const dataContexto = document.documentElement.getAttribute("data-contexto");
+console.log(dataContexto);
 
 let tempoFoco = 25 * 60;
 let tempoDescansoCurto = 5 * 60
@@ -77,6 +79,8 @@ function alterarModo() {
         
         modoAtual = tempoDescansoCurto
         totalTime = tempoDescansoCurto
+        
+
     } else if (modo === "Descanso Curto") {
         modo = "Descanso Longo"
         totalTime = tempoDescansoLongo
@@ -86,13 +90,19 @@ function alterarModo() {
         modo = "Foco"
         totalTime = tempoFoco
         modoAtual = tempoFoco
+        
     }
     atualizarDisplay();
     atualizarCirculo();
    
 }
 
+function editaEstilos(corBordaBotao, corFundoBotao) {
+    
+    document.documentElement.style.setProperty('--cor-borda-botao',corBordaBotao)
+    document.documentElement.style.setProperty('--cor-fundo-botao',corFundoBotao)
 
+}
 botaoFoco.addEventListener('click', () => {
     modo = "Foco"
     modoAtual = tempoFoco
@@ -102,7 +112,7 @@ botaoFoco.addEventListener('click', () => {
     botaoCurto.classList.remove("ativo")
     botaoLongo.classList.remove("ativo")
     resetTimer()
-    editaEstilos()
+    editaEstilos('#84CC16','#82cb151a');
 
 })
 
@@ -115,7 +125,7 @@ botaoCurto.addEventListener('click', () => {
     botaoFoco.classList.remove("ativo")
     botaoLongo.classList.remove("ativo")
     resetTimer()
-    editaEstilos()
+    editaEstilos('#06B6D4','#06b5d41a');
 })
 
 botaoLongo.addEventListener('click', () => {
@@ -127,7 +137,7 @@ botaoLongo.addEventListener('click', () => {
     botaoFoco.classList.remove("ativo");
     botaoCurto.classList.remove("ativo");
     resetTimer();
-    editaEstilos()
+    editaEstilos('#FF755C','#ff745c1a');
 
 })
 
@@ -170,7 +180,7 @@ function checarCheckbox(inputCheckbox, itemLista) {
     
     inputCheckbox.addEventListener('change', function() {
         if (inputCheckbox.checked) {
-            itemLista.style.color = "#84CC16"
+            
             
         } else {
             itemLista.style.color = "#FFFFFF"
@@ -179,16 +189,9 @@ function checarCheckbox(inputCheckbox, itemLista) {
 
 }
 
-function editaEstilos() {
-    if (botaoCurto.classList.contains("ativo")) {
-        botaoCurto.style.color = "#06B6D4";
-        botaoCurto.style.background = "#06b5d41a";
-        botaoCurto.style.borderColor = "#06B6D4";
-    }
 
-}
 
 
 atualizarDisplay();
 atualizarCirculo();
-editaEstilos()
+ 
