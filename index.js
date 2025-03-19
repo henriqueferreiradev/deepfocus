@@ -10,8 +10,9 @@ const botaoAdicionar = document.getElementById('add_tarefa')
 const checkbox = document.getElementById('checkbox-1')
 const alerta = document.querySelector('.alerta')
 const corAtivo = document.querySelector('.ativo')
-const dataContexto = document.documentElement.getAttribute("data-contexto");
-console.log(dataContexto);
+const botaoMudarModo = document.getElementById('dark-light')
+const botoes = document.querySelectorAll('.botao')
+
 
 let tempoFoco = 25 * 60;
 let tempoDescansoCurto = 5 * 60
@@ -22,6 +23,7 @@ let modo = "Foco"
 let modoAtual = tempoFoco
 let totalTime = modoAtual
 let contador = 0
+
 
 function startTimer() {
     if (!timerAtivo) {
@@ -76,43 +78,43 @@ function alterarModo() {
     if (modo === "Foco") {
 
         modo = "Descanso Curto";
-        
+
         modoAtual = tempoDescansoCurto
         totalTime = tempoDescansoCurto
-        
+
 
     } else if (modo === "Descanso Curto") {
         modo = "Descanso Longo"
         totalTime = tempoDescansoLongo
         modoAtual = tempoDescansoLongo
-        
+
     } else {
         modo = "Foco"
         totalTime = tempoFoco
         modoAtual = tempoFoco
-        
+
     }
     atualizarDisplay();
     atualizarCirculo();
-   
+
 }
 
 function editaEstilos(corBordaBotao, corFundoBotao) {
-    
-    document.documentElement.style.setProperty('--cor-borda-botao',corBordaBotao)
-    document.documentElement.style.setProperty('--cor-fundo-botao',corFundoBotao)
+
+    document.documentElement.style.setProperty('--cor-borda-botao', corBordaBotao)
+    document.documentElement.style.setProperty('--cor-fundo-botao', corFundoBotao)
 
 }
 botaoFoco.addEventListener('click', () => {
     modo = "Foco"
     modoAtual = tempoFoco
     totalTime = tempoFoco
-    
+
     botaoFoco.classList.add("ativo")
     botaoCurto.classList.remove("ativo")
     botaoLongo.classList.remove("ativo")
     resetTimer()
-    editaEstilos('#84CC16','#82cb151a');
+    editaEstilos('#84CC16', '#82cb151a');
 
 })
 
@@ -125,19 +127,19 @@ botaoCurto.addEventListener('click', () => {
     botaoFoco.classList.remove("ativo")
     botaoLongo.classList.remove("ativo")
     resetTimer()
-    editaEstilos('#06B6D4','#06b5d41a');
+    editaEstilos('#06B6D4', '#06b5d41a');
 })
 
 botaoLongo.addEventListener('click', () => {
     modo = "Descanso Longo";
     modoAtual = tempoDescansoLongo
     totalTime = tempoDescansoLongo
-   
+
     botaoLongo.classList.add("ativo");
     botaoFoco.classList.remove("ativo");
     botaoCurto.classList.remove("ativo");
     resetTimer();
-    editaEstilos('#FF755C','#ff745c1a');
+    editaEstilos('#FF755C', '#ff745c1a');
 
 })
 
@@ -172,26 +174,34 @@ function adicionarTarefa() {
     listaDeTarefas.appendChild(listaItem);
     input.value = "";
     checarCheckbox(inputCheckbox, itemLista)
-    return {inputCheckbox, itemLista} 
+    return { inputCheckbox, itemLista }
 }
 
 
 function checarCheckbox(inputCheckbox, itemLista) {
-    
-    inputCheckbox.addEventListener('change', function() {
+
+    inputCheckbox.addEventListener('change', function () {
         if (inputCheckbox.checked) {
-            
-            
+
+
         } else {
             itemLista.style.color = "#FFFFFF"
         }
-    }) 
+    })
 
 }
 
-
+function trocarModo() {
+    botaoMudarModo.addEventListener('click', () => {
+        document.body.classList.toggle("light")
+        botoes.forEach(botao => {
+            botao.classList.toggle('light')
+        }) 
+        
+    })
+}
 
 
 atualizarDisplay();
 atualizarCirculo();
- 
+trocarModo();

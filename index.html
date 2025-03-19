@@ -14,9 +14,9 @@
             <h2>Deep<span>Focus</span></h2>
         </div>
         <div class="social_container">
-            <a class="social_links" href=""><img src="./assets/light.png" alt=""></a>
-            <a class="social_links" href=""><img src="./assets/github_dark.png" alt=""></a>
-            <a class="social_links" href=""><img src="./assets/translate-dark.png" alt=""></a>
+            <button id="dark-light" class="social_links" href=""><img src="./assets/light.png" alt=""></button>
+            <button  class="social_links" href=""><img src="./assets/github_dark.png" alt=""></button>
+            <button  class="social_links" href=""><img src="./assets/translate-dark.png" alt=""></button>
         </div>
     </header>
     <main>
@@ -36,15 +36,15 @@
 
                 <div class="content">
                     <div class="focus-break-btns">
-                        <button class="focus_btn ativo">Focus</button>
-                        <button class="short_btn">Short</button>
-                        <button class="long_btn">Long</button>
+                        <button class="botao focus_btn ativo">Focus</button>
+                        <button class="botao short_btn">Short</button>
+                        <button class="botao long_btn">Long</button>
                     </div>
                     <div id="timer"></div>
                     <div class="focus-break-btns">
-                        <button id="start_btn" onclick="startTimer()">Start</button>
-                        <button id="pause_btn"  onclick="pauseTimer()">Pause</button>
-                        <button id="reset_btn"  onclick="resetTimer()">Reset</button>
+                        <button class="botao" id="start_btn" onclick="startTimer()">Start</button>
+                        <button class="botao" id="pause_btn"  onclick="pauseTimer()">Pause</button>
+                        <button class="botao" id="reset_btn"  onclick="resetTimer()">Reset</button>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                     </ul>
                     <div class="input_container">
                         <input id="tarefa-input" class="tarefa-input" type="text">
-                        <button class="add_tarefa ativo" id="add_tarefa " onclick="adicionarTarefa()">Adicionar</button>
+                        <button class="botao add_tarefa ativo" id="add_tarefa " onclick="adicionarTarefa()">Adicionar</button>
                     </div>
                 </div>
             </div>

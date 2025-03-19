@@ -4,17 +4,15 @@
     --cnz: #71717A;
     --cnz2: #27272A;
     --cor-de-fundo: #18181b;
+    --cor-de-fundo-light: #dfdfdf;
     --bco: #FFF;
     --preto: #000000;
     --fonte-timer: "Orbitron";
     --fonte-principal: "Inter";
     --cor-borda-botao: #84CC16;
     --cor-fundo-botao: #82cb151a;
- 
-
-
 }
- 
+
 
 * {
     padding: 0;
@@ -50,6 +48,12 @@ body {
     height: 100vh;
 }
 
+body.light {
+    background-color: var(--cor-de-fundo-light);
+    color: var(--preto);
+    border: 1px solid var(--cnz2);
+}
+
 main {
     display: flex;
     justify-content: center;
@@ -80,13 +84,16 @@ circle {
 .social_links:hover {
     border: 1px solid var(--cor-borda-botao);
 }
+
 .social_links img {
     width: 20px;
     height: 20px;
 }
+
 .container {
     border: 1px solid var(--cnz2);
     border-radius: 25px;
+    
 }
 
 .container-timer {
@@ -126,9 +133,8 @@ button {
     background-color: transparent;
     color: #ffffff5d;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: .5em;
     text-transform: uppercase;
-
 }
 
 button:hover {
@@ -136,7 +142,13 @@ button:hover {
     font-weight: 700;
     border: 1px solid var(--cor-borda-botao);
     background-color: var(--cor-fundo-botao);
+}
 
+button.light {
+    color: var(--preto);
+}
+#progress {
+    stroke: var(--cor-borda-botao)
 }
 
 .botao_excluir img {
@@ -239,12 +251,14 @@ button:hover {
 
 .add_tarefa {
     font-size: 18px;
+    border-radius: 0 .5em  0.5em 0;
+    
 }
 
 .tarefa-input {
     background-color: var(--cnz2);
     border: none;
-    border-radius: 0.5em;
+    border-radius: 0.5em 0 0 0.5em;
 }
 
 input[type="checkbox"] {
