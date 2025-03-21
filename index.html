@@ -15,8 +15,8 @@
         </div>
         <div class="social_container">
             <button id="dark-light" class="social_links" href=""><img src="./assets/light.png" alt=""></button>
-            <button  class="social_links" href=""><img src="./assets/github_dark.png" alt=""></button>
-            <button  class="social_links" href=""><img src="./assets/translate-dark.png" alt=""></button>
+            <button id="github_btn" class="social_links" href=""><img src="./assets/github_dark.png" alt=""></button>
+            <button class="social_links" href=""><img src="./assets/translate-dark.png" alt=""></button>
         </div>
     </header>
     <main>
@@ -29,9 +29,8 @@
 
                 <svg width="600" height="600" viewBox="0 0 100 100">
                     <circle cx="50" cy="50" r="45" fill="none" stroke="#27272A" stroke-width="2" />
-                    <circle id="progress" cx="50" cy="50" r="45" fill="none" stroke="#84CC16" stroke-width="3" 
-                        stroke-dasharray="282.74" stroke-dashoffset="282.74" 
-                        stroke-linecap="round" />
+                    <circle id="progress" cx="50" cy="50" r="45" fill="none" stroke="#84CC16" stroke-width="3"
+                        stroke-dasharray="282.74" stroke-dashoffset="282.74" stroke-linecap="round" />
                 </svg>
 
                 <div class="content">
@@ -43,8 +42,8 @@
                     <div id="timer"></div>
                     <div class="focus-break-btns">
                         <button class="botao" id="start_btn" onclick="startTimer()">Start</button>
-                        <button class="botao" id="pause_btn"  onclick="pauseTimer()">Pause</button>
-                        <button class="botao" id="reset_btn"  onclick="resetTimer()">Reset</button>
+                        <button class="botao" id="pause_btn" onclick="pauseTimer()">Pause</button>
+                        <button class="botao" id="reset_btn" onclick="resetTimer()">Reset</button>
                     </div>
                 </div>
             </div>
@@ -59,10 +58,19 @@
                 <div class="container_lista-de-tarefas">
                     <ul class="lista-de-tarefas" id="lista-de-tarefas">
                         <p class="alerta">Sem tarefas no momento</p>
+                        <li class="lista-item-container">
+                       
+                            <input type="checkbox" id="checkbox">
+                            <div>
+                            <p>2222</p>
+                            <button class="botao botao_excluir">❌</button>
+                            </div>
+                        </li>
                     </ul>
                     <div class="input_container">
                         <input id="tarefa-input" class="tarefa-input" type="text">
-                        <button class="botao add_tarefa ativo" id="add_tarefa " onclick="adicionarTarefa()">Adicionar</button>
+                        <button class="botao add_tarefa ativo" id="add_tarefa "
+                            onclick="adicionarTarefa()">Adicionar</button>
                     </div>
                 </div>
             </div>

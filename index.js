@@ -12,6 +12,7 @@ const alerta = document.querySelector('.alerta')
 const corAtivo = document.querySelector('.ativo')
 const botaoMudarModo = document.getElementById('dark-light')
 const botoes = document.querySelectorAll('.botao')
+const botaoGithub = document.getElementById('github_btn')
 
 
 let tempoFoco = 25 * 60;
@@ -166,14 +167,30 @@ function adicionarTarefa() {
     inputCheckbox.type = "checkbox";
     inputCheckbox.id = "checkbox" + contador++;
 
+    const divItem = document.createElement('div')
+    divItem.classList.add('')
     const itemLista = document.createElement('p');
     itemLista.innerText = inputValue;
 
+    const botaoExcluir = document.createElement('button')
+    botaoExcluir.classList.add("botao", "botao_excluir")
+    botaoExcluir.innerText = '❌'
+    botaoExcluir.addEventListener('click', function () {
+        listaItem.remove();
+    })
     listaItem.appendChild(inputCheckbox);
     listaItem.appendChild(itemLista);
+    listaItem.appendChild(botaoExcluir)
     listaDeTarefas.appendChild(listaItem);
     input.value = "";
     checarCheckbox(inputCheckbox, itemLista)
+
+    if (listaDeTarefas.children.length > 1) {
+        alerta.style.display = 'none'
+    } else {
+        alerta.style.display = 'block'
+    }
+
     return { inputCheckbox, itemLista }
 }
 
@@ -201,7 +218,9 @@ function trocarModo() {
     })
 }
 
-
+botaoGithub.addEventListener('click', () => {
+    window.open('https://github.com/henriqueferreiradev')
+})
 atualizarDisplay();
 atualizarCirculo();
 trocarModo();
