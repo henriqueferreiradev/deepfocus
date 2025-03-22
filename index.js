@@ -13,7 +13,21 @@ const corAtivo = document.querySelector('.ativo')
 const botaoMudarModo = document.getElementById('dark-light')
 const botoes = document.querySelectorAll('.botao')
 const botaoGithub = document.getElementById('github_btn')
+const inputTarefa = document.getElementById('tarefa_input')
+const audios = {
+    beep: new Audio("./audio/beep.mp3"),
+    music: new Audio("./audio/luna-rise-part-one.mp3"),
+    pause: new Audio("./audio/pause.mp3"),
+    play: new Audio("./audio/play.wav"),
+}
 
+function tocarAudio(nome) {
+    if (audios[nome]) {
+        audios[nome].play()
+    } else {
+        console.error("Audio nao encontrado:", nome)
+    }
+}
 
 let tempoFoco = 25 * 60;
 let tempoDescansoCurto = 5 * 60
@@ -27,6 +41,7 @@ let contador = 0
 
 
 function startTimer() {
+    tocarAudio("play")
     if (!timerAtivo) {
         timerAtivo = true;
         intervalo = setInterval(() => {
@@ -35,6 +50,7 @@ function startTimer() {
 
                 atualizarDisplay();
                 atualizarCirculo();
+                
 
                 botaoStart.classList.add("ativo")
             } else {
@@ -144,6 +160,8 @@ botaoLongo.addEventListener('click', () => {
 
 })
 
+
+
 function atualizarCirculo() {
     let progresso = (modoAtual / totalTime) * 282.74
     progressCircle.style.strokeDashoffset = progresso
@@ -168,7 +186,7 @@ function adicionarTarefa() {
     inputCheckbox.id = "checkbox" + contador++;
 
     const divItem = document.createElement('div')
-    divItem.classList.add('')
+    divItem.classList.add('lista-item')
     const itemLista = document.createElement('p');
     itemLista.innerText = inputValue;
 
@@ -177,29 +195,38 @@ function adicionarTarefa() {
     botaoExcluir.innerText = '❌'
     botaoExcluir.addEventListener('click', function () {
         listaItem.remove();
+        verificarAlerta()
     })
     listaItem.appendChild(inputCheckbox);
-    listaItem.appendChild(itemLista);
-    listaItem.appendChild(botaoExcluir)
+    listaItem.appendChild(divItem);
+    divItem.appendChild(itemLista)
+    divItem.appendChild(botaoExcluir)
     listaDeTarefas.appendChild(listaItem);
     input.value = "";
     checarCheckbox(inputCheckbox, itemLista)
+    verificarAlerta()
 
-    if (listaDeTarefas.children.length > 1) {
-        alerta.style.display = 'none'
-    } else {
-        alerta.style.display = 'block'
-    }
+
+
 
     return { inputCheckbox, itemLista }
 }
 
+function verificarAlerta() {
+    const listaDeTarefas = document.getElementById('lista-de-tarefas');
+    const alerta = document.querySelector('.alerta');
+    
+    if (listaDeTarefas.children.length > 0) {
+        alerta.style.display = 'none';
+    } else {
+        alerta.style.display = 'block';
+    }
+}
 
 function checarCheckbox(inputCheckbox, itemLista) {
 
     inputCheckbox.addEventListener('change', function () {
         if (inputCheckbox.checked) {
-
 
         } else {
             itemLista.style.color = "#FFFFFF"
@@ -213,14 +240,34 @@ function trocarModo() {
         document.body.classList.toggle("light")
         botoes.forEach(botao => {
             botao.classList.toggle('light')
-        }) 
-        
+        })
+
     })
 }
 
 botaoGithub.addEventListener('click', () => {
     window.open('https://github.com/henriqueferreiradev')
 })
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const inputTarefa = document.getElementById("tarefa-input");
+    const botaoAdicionar = document.getElementById("add_tarefa"); // Sem espaço extra!
+
+    if (inputTarefa && botaoAdicionar) {
+        inputTarefa.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                botaoAdicionar.click(); // Aciona o botão de adicionar tarefa
+            }
+        });
+    } else {
+        console.error("Elemento não encontrado: Verifique se #tarefa-input e #add_tarefa existem.");
+    }
+});
+
+
 atualizarDisplay();
 atualizarCirculo();
 trocarModo();
+

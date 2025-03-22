@@ -233,14 +233,13 @@ button.light {
     font-weight: 600;
     font-size: 16px;
 }
-
-.lista-item-container div {
+ 
+.lista-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
-
 .tarefa-input {
     width: 400px;
     padding: 1em;
