@@ -56,7 +56,9 @@ function startTimer() {
             } else {
                 clearInterval(intervalo);
                 timerAtivo = false;
+                tocarAudio('beep')
                 alert("Tempo acabou!");
+                
                 alterarModo()
                 startTimer()
             }
@@ -65,6 +67,7 @@ function startTimer() {
 }
 
 function pauseTimer() {
+    tocarAudio('pause')
     clearInterval(intervalo)
     timerAtivo = false
     botaoPause.classList.add("ativo")
@@ -72,6 +75,7 @@ function pauseTimer() {
 }
 
 function resetTimer() {
+    tocarAudio('reset')
     clearInterval(intervalo)
     modoAtual = (modo === "Foco") ? tempoFoco :
         (modo === "Descanso Curto") ? tempoDescansoCurto :
