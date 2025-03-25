@@ -186,6 +186,7 @@ button.light {
 }
 
 .container_titulo {
+    display: flex;
     padding: 1.5em;
     border-bottom: 1px solid var(--cnz);
 
@@ -227,10 +228,9 @@ button.light {
 .lista-item-container {
     display: flex;
     gap: 0.5em;
-    border-bottom: 1px solid var(--cnz);
-    margin: .5em 1em;
-    padding: 0.5em 0.5em;
-    align-items: center;
+
+    margin: .2em 1em;
+     align-items: center;
 
 
 }

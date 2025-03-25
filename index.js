@@ -14,12 +14,16 @@ const botaoMudarModo = document.getElementById('dark-light')
 const botoes = document.querySelectorAll('.botao')
 const botaoGithub = document.getElementById('github_btn')
 const inputTarefa = document.getElementById('tarefa_input')
+
 const audios = {
     beep: new Audio("./audio/beep.mp3"),
     music: new Audio("./audio/luna-rise-part-one.mp3"),
     pause: new Audio("./audio/pause.mp3"),
     play: new Audio("./audio/play.wav"),
 }
+
+const pmodoAtual = document.getElementById('modo_atual')
+const proxModo = document.getElementById('proximo_modo')
 
 function tocarAudio(nome) {
     if (audios[nome]) {
@@ -29,9 +33,9 @@ function tocarAudio(nome) {
     }
 }
 
-let tempoFoco = 25 * 60;
-let tempoDescansoCurto = 5 * 60
-let tempoDescansoLongo = 15 * 60
+let tempoFoco = 0.1 * 60;
+let tempoDescansoCurto = .15 * 60
+let tempoDescansoLongo = .20 * 60
 let timerAtivo = false;
 let intervalo;
 let modo = "Foco"
@@ -97,28 +101,44 @@ function atualizarDisplay() {
 
 function alterarModo() {
     if (modo === "Foco") {
+        if (contador % 2 === 0) {
+            modo = "Descanso Curto";
+            modoAtual = tempoDescansoCurto;
+            totalTime = tempoDescansoCurto;
 
-        modo = "Descanso Curto";
+            botaoCurto.classList.add("ativo");
+            botaoFoco.classList.remove("ativo");
+            botaoLongo.classList.remove("ativo");
 
-        modoAtual = tempoDescansoCurto
-        totalTime = tempoDescansoCurto
+            editaEstilos('#06B6D4', '#06b5d41a');
+        } else {
+            modo = "Descanso Longo";
+            modoAtual = tempoDescansoLongo;
+            totalTime = tempoDescansoLongo;
 
+            botaoLongo.classList.add("ativo");
+            botaoFoco.classList.remove("ativo");
+            botaoCurto.classList.remove("ativo");
 
-    } else if (modo === "Descanso Curto") {
-        modo = "Descanso Longo"
-        totalTime = tempoDescansoLongo
-        modoAtual = tempoDescansoLongo
-
+            editaEstilos('#FF755C', '#ff745c1a');
+        }
     } else {
-        modo = "Foco"
-        totalTime = tempoFoco
-        modoAtual = tempoFoco
+        modo = "Foco";
+        modoAtual = tempoFoco;
+        totalTime = tempoFoco;
 
+        botaoFoco.classList.add("ativo");
+        botaoCurto.classList.remove("ativo");
+        botaoLongo.classList.remove("ativo");
+
+        editaEstilos('#84CC16', '#82cb151a');
     }
+    
+    contador++;  
     atualizarDisplay();
     atualizarCirculo();
-
 }
+
 
 function editaEstilos(corBordaBotao, corFundoBotao) {
 
