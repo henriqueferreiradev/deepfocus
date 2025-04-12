@@ -53,7 +53,7 @@ body {
 body.light {
     background-color: var(--cor-de-fundo-light);
     color: var(--preto);
- 
+
 }
 
 main {
@@ -83,10 +83,12 @@ circle {
     border-radius: 5px;
     margin: 0 0.2em;
 }
+
 .social_links.light {
     background-color: var(--cnz);
     border: 1px solid var(--cnz);
 }
+
 .social_links:hover {
     border: 1px solid var(--cor-borda-botao);
 }
@@ -142,7 +144,7 @@ button {
     cursor: pointer;
     border-radius: .5em;
     text-transform: uppercase;
-     
+
 }
 
 button:hover {
@@ -230,7 +232,7 @@ button.light {
     gap: 0.5em;
 
     margin: .2em 1em;
-     align-items: center;
+    align-items: center;
 
 
 }
@@ -239,13 +241,14 @@ button.light {
     font-weight: 600;
     font-size: 16px;
 }
- 
+
 .lista-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
+
 .tarefa-input {
     width: 400px;
     padding: 1em;
@@ -256,9 +259,11 @@ button.light {
     border: none;
     border-radius: 0.5em 0 0 0.5em;
 }
+
 .tarefa-input.light {
     background-color: blue;
 }
+
 .input_container {
     position: absolute;
     bottom: 20px;
@@ -314,6 +319,6 @@ input[type="checkbox"]:checked::after {
 }
 
 .botao_excluir:hover {
-   color: var(--cor-vermelha-botao);
-   background-color: var(--cor-vermelha-botao-10);
+    color: var(--cor-vermelha-botao);
+    background-color: var(--cor-vermelha-botao-10);
 }

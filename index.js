@@ -105,7 +105,7 @@ function alterarModo() {
             modo = "Descanso Curto";
             modoAtual = tempoDescansoCurto;
             totalTime = tempoDescansoCurto;
-
+            modoAtual
             botaoCurto.classList.add("ativo");
             botaoFoco.classList.remove("ativo");
             botaoLongo.classList.remove("ativo");
@@ -154,6 +154,7 @@ botaoFoco.addEventListener('click', () => {
     botaoFoco.classList.add("ativo")
     botaoCurto.classList.remove("ativo")
     botaoLongo.classList.remove("ativo")
+
     resetTimer()
     editaEstilos('#84CC16', '#82cb151a');
 
@@ -167,6 +168,7 @@ botaoCurto.addEventListener('click', () => {
     botaoCurto.classList.add("ativo")
     botaoFoco.classList.remove("ativo")
     botaoLongo.classList.remove("ativo")
+    proxModo.textContent = "Short  "
     resetTimer()
     editaEstilos('#06B6D4', '#06b5d41a');
 })
